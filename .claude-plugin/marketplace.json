@@ -1,0 +1,71 @@
+{
+  "name": "cimc-agent-tools",
+  "owner": {
+    "name": "CIMC.ai",
+    "email": "eriknewton@gmail.com"
+  },
+  "metadata": {
+    "description": "Sovereignty and negotiation tools for the agentic economy. Built by the California Institute for Machine Consciousness.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "sanctuary-framework",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/eriknewton/sanctuary-framework.git",
+        "path": "plugin"
+      },
+      "description": "Sovereignty infrastructure for AI agents — encrypted state, self-custodied identity, selective disclosure, portable reputation, and sovereignty verification.",
+      "version": "0.3.0",
+      "author": {
+        "name": "CIMC.ai",
+        "email": "eriknewton@gmail.com"
+      },
+      "homepage": "https://github.com/eriknewton/sanctuary-framework",
+      "repository": "https://github.com/eriknewton/sanctuary-framework",
+      "license": "Apache-2.0",
+      "keywords": [
+        "sovereignty",
+        "encryption",
+        "identity",
+        "reputation",
+        "privacy",
+        "mcp",
+        "agent",
+        "zero-knowledge",
+        "audit"
+      ],
+      "category": "security",
+      "tags": ["sovereignty", "encryption", "identity", "agent-infrastructure"]
+    },
+    {
+      "name": "concordia-protocol",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/eriknewton/concordia-protocol.git",
+        "path": "plugin"
+      },
+      "description": "Structured negotiation protocol for autonomous agents — binding commitments, multi-attribute offers, session receipts, portable reputation, and discovery.",
+      "version": "0.1.0",
+      "author": {
+        "name": "CIMC.ai",
+        "email": "eriknewton@gmail.com"
+      },
+      "homepage": "https://github.com/eriknewton/concordia-protocol",
+      "repository": "https://github.com/eriknewton/concordia-protocol",
+      "license": "Apache-2.0",
+      "keywords": [
+        "negotiation",
+        "protocol",
+        "commerce",
+        "reputation",
+        "mcp",
+        "agent",
+        "a2a"
+      ],
+      "category": "productivity",
+      "tags": ["negotiation", "commerce", "agent-protocol", "deal-making"]
+    }
+  ]
+}
