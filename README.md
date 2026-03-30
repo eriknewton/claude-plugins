@@ -1,18 +1,20 @@
-# CIMC Agent Tools — Claude Code Plugin Marketplace
+# Sanctuary & Concordia — Claude Code Plugin Marketplace
 
-Sovereignty and negotiation tools for the agentic economy, built by the [California Institute for Machine Consciousness](https://cimc.ai).
+Sovereignty and negotiation tools for the agentic economy, by Erik Newton.
 
 ## Plugins
 
-### Sanctuary Framework
+### Sanctuary Framework (v0.3.1)
 
-Sovereignty infrastructure for AI agents. Gives your agent encrypted state (AES-256-GCM), self-custodied identity (Ed25519), selective disclosure (Pedersen commitments, Schnorr proofs), portable reputation, and sovereignty verification — as 46 MCP tools.
+Sovereignty infrastructure for AI agents. Four cryptographic layers — encrypted state (AES-256-GCM, Argon2id key derivation), self-custodied identity (Ed25519), selective disclosure (Pedersen commitments, Schnorr proofs, range proofs), and portable reputation (signed attestations, sovereignty-gated tiers) — as **46 MCP tools**.
 
-**Install:** `pip install concordia-protocol` is not required. Sanctuary runs via npx.
+Includes the **Sovereignty Audit** tool for environment fingerprinting and four-layer gap analysis with OpenClaw-specific detection. Also includes Sovereignty Health Report generation/verification, sovereignty handshake protocol, federation registry, principal dashboard, and the Concordia bridge module.
 
-### Concordia Protocol
+**Install:** No pip required. Runs via npx (`@sanctuary-framework/mcp-server@0.3.1`).
 
-Structured negotiation protocol for autonomous agents. Gives your agent binding commitments, multi-attribute offers (Basic, Partial, Conditional, Bundle), session receipts, portable reputation, and agent discovery — as 48 MCP tools.
+### Concordia Protocol (v0.1.0)
+
+Structured negotiation protocol for autonomous agents. Six-state session lifecycle, four offer types (Basic, Partial, Conditional, Bundle), Ed25519-signed hash-chained transcripts, binding commitments, session receipts, want registry, agent registry, and graceful degradation for non-Concordia peers — as **48 MCP tools**.
 
 **Requires:** `pip install concordia-protocol`
 
@@ -27,19 +29,42 @@ Add this marketplace to Claude Code:
 Install either or both plugins:
 
 ```bash
-/plugin install sanctuary-framework@cimc-agent-tools
-/plugin install concordia-protocol@cimc-agent-tools
+/plugin install sanctuary-framework@sanctuary-concordia
+/plugin install concordia-protocol@sanctuary-concordia
+```
+
+Or install directly via package managers:
+
+```bash
+# Sanctuary (TypeScript/Node.js)
+npx @sanctuary-framework/mcp-server
+
+# Concordia (Python)
+pip install concordia-protocol
+python -m concordia
 ```
 
 ## How They Compose
 
-Sanctuary handles **identity and trust**. Concordia handles **negotiation and agreement**. Either works alone. Together they form the sovereign transaction stack — an agent can negotiate deals (Concordia), commit outcomes cryptographically (Sanctuary bridge), and build portable reputation across both.
+Sanctuary handles **identity and trust**. Concordia handles **negotiation and agreement**. Either works alone. Together they form the sovereign transaction stack:
+
+```
+  Settlement    ACP / Stripe / Lightning
+  ──────────────────────────────────────
+  Agreement     Concordia (48 tools)
+  ──────────────────────────────────────
+  Sovereignty   Sanctuary (46 tools)
+  ──────────────────────────────────────
+  Tools         MCP
+```
+
+An agent running both can negotiate deals (Concordia), commit outcomes cryptographically (Sanctuary L3 bridge), build portable reputation across both (Sanctuary L4 + Concordia attestations), and prove its sovereignty posture to any counterparty (Sovereignty Health Report).
 
 ## Links
 
-- [Sanctuary Framework](https://github.com/eriknewton/sanctuary-framework) — npm: `@sanctuary-framework/mcp-server`
-- [Concordia Protocol](https://github.com/eriknewton/concordia-protocol) — PyPI: `concordia-protocol`
-- [CIMC.ai](https://cimc.ai) — California Institute for Machine Consciousness
+- [Sanctuary Framework](https://github.com/eriknewton/sanctuary-framework) — npm: `@sanctuary-framework/mcp-server` (v0.3.1, 315 tests)
+- [Concordia Protocol](https://github.com/eriknewton/concordia-protocol) — PyPI: `concordia-protocol` (v0.1.0, 587 tests)
+- Erik Newton: [eriknewton.com](https://eriknewton.com)
 
 ## License
 
