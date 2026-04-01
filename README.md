@@ -4,13 +4,13 @@ Sovereignty and negotiation tools for the agentic economy, by Erik Newton.
 
 ## Plugins
 
-### Sanctuary Framework (v0.3.1)
+### Sanctuary Framework (v0.4.2)
 
-Sovereignty infrastructure for AI agents. Four cryptographic layers — encrypted state (AES-256-GCM, Argon2id key derivation), self-custodied identity (Ed25519), selective disclosure (Pedersen commitments, Schnorr proofs, range proofs), and portable reputation (signed attestations, sovereignty-gated tiers) — as **46 MCP tools**.
+Sovereignty infrastructure for AI agents. Four cryptographic layers — encrypted state (AES-256-GCM, Argon2id key derivation), self-custodied identity (Ed25519), selective disclosure (Pedersen commitments, Schnorr proofs, range proofs), and portable reputation (signed attestations, sovereignty-gated tiers) — as **54 MCP tools**.
 
-Includes the **Sovereignty Audit** tool for environment fingerprinting and four-layer gap analysis with OpenClaw-specific detection. Also includes Sovereignty Health Report generation/verification, sovereignty handshake protocol, federation registry, principal dashboard, and the Concordia bridge module.
+Includes the **Sovereignty Audit** tool for environment fingerprinting and four-layer gap analysis with OpenClaw-specific detection. Also includes **L2 Context Gating** (5 tools controlling what context flows to external providers), L2 Hardening verification, SHR Gateway Export, Sovereignty Health Report generation/verification, sovereignty handshake protocol, federation registry, principal dashboard, and the Concordia bridge module.
 
-**Install:** No pip required. Runs via npx (`@sanctuary-framework/mcp-server@0.3.1`).
+**Install:** No pip required. Runs via npx (`@sanctuary-framework/mcp-server@0.4.2`).
 
 ### Concordia Protocol (v0.1.0)
 
@@ -53,7 +53,7 @@ Sanctuary handles **identity and trust**. Concordia handles **negotiation and ag
   ──────────────────────────────────────
   Agreement     Concordia (48 tools)
   ──────────────────────────────────────
-  Sovereignty   Sanctuary (46 tools)
+  Sovereignty   Sanctuary (54 tools)
   ──────────────────────────────────────
   Tools         MCP
 ```
@@ -62,7 +62,7 @@ An agent running both can negotiate deals (Concordia), commit outcomes cryptogra
 
 ## Links
 
-- [Sanctuary Framework](https://github.com/eriknewton/sanctuary-framework) — npm: `@sanctuary-framework/mcp-server` (v0.3.1, 315 tests)
+- [Sanctuary Framework](https://github.com/eriknewton/sanctuary-framework) — npm: `@sanctuary-framework/mcp-server` (v0.4.2, 484 tests)
 - [Concordia Protocol](https://github.com/eriknewton/concordia-protocol) — PyPI: `concordia-protocol` (v0.1.0, 587 tests)
 - Erik Newton: [eriknewton.com](https://eriknewton.com)
 
