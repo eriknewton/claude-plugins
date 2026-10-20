@@ -1,80 +1,58 @@
-# Newton Agent Tools — Claude Code Plugin Marketplace
+# Newton Agent Tools: a Claude Code plugin marketplace
 
-Sovereignty, negotiation, and reputation tools for the agentic economy, by Erik Newton.
+Security and negotiation tools for AI agents, by Erik Newton. Open source, Apache-2.0.
 
-## Plugins
-
-### Sanctuary Framework (v0.6.1)
-
-Sovereignty infrastructure for AI agents. Four cryptographic layers — encrypted state (AES-256-GCM, Argon2id key derivation), self-custodied identity (Ed25519), selective disclosure (Pedersen commitments, Schnorr proofs, range proofs), and portable reputation (signed attestations, sovereignty-gated tiers) — as **67+ MCP tools**.
-
-Includes Cocoon Mode (MCP proxy with injection hardening and runtime governance), Sovereignty Audit, L2 Context Gating, SHR Gateway Export, sovereignty handshake protocol, federation registry, principal dashboard, the Concordia bridge module, Verascore publish, and the zero-friction quickstart.
-
-**Install:** No pip required. Runs via npx (`@sanctuary-framework/mcp-server@0.6.1`).
-
-### Concordia Protocol (v0.2.1)
-
-Structured negotiation protocol for autonomous agents. Six-state session lifecycle, four offer types (Basic, Partial, Conditional, Bundle), Ed25519-signed hash-chained transcripts, binding commitments, session receipts, want registry, agent registry, Verascore bridge, and graceful degradation for non-Concordia peers — as **52 MCP tools**.
-
-**Requires:** `pip install concordia-protocol`
-
-### Verascore (v0.1.0)
-
-Agent reputation scoring and trust verification. Check trust scores, register agents, report transactions, query compliance data, and embed trust badges via Verascore — the authoritative reputation platform for AI agents.
-
-**Install:** Runs via npx or configure as MCP server pointing to the Verascore skill package.
-
-## Quick Start
-
-Add this marketplace to Claude Code:
+Add the marketplace in Claude Code, then install a plugin:
 
 ```bash
 /plugin marketplace add eriknewton/claude-plugins
-```
-
-Install any or all plugins:
-
-```bash
 /plugin install sanctuary-framework@newton-agent-tools
 /plugin install concordia-protocol@newton-agent-tools
-/plugin install verascore@newton-agent-tools
 ```
 
-Or install directly via package managers:
+## Sanctuary (v1.8.4)
+
+Security for AI agents. Sanctuary puts a wall under the agent that the operating system enforces, under a policy the operator signs; keeps keys and agent state encrypted on hardware the operator controls; and writes what the agent did to a hash-chained record.
+
+What this plugin adds: the Sanctuary MCP server (`@sanctuary-framework/mcp-server@1.8.4`, pinned) with encrypted state, a self-held Ed25519 identity, approval gates for irreversible operations, selective disclosure, portable reputation and a posture audit. The operating-system wall is a separate arming step:
+
+- macOS: proven. A signed operator policy with a clean per-account allow/deny demonstration that survives reboots. Not an audited per-rule, per-flow trail.
+- Linux: proven on Ubuntu 24.04 (x86-64) only, for the separate [Castle Wall Linux 0.1.0-1 package](https://github.com/eriknewton/sanctuary-framework/releases/tag/castle-wall-linux-0.1.0-1) (a GitHub pre-release). The npm package does not include it.
+- Windows: roadmapped. Nothing enforces on Windows today.
+
+Every claim traces to a row of the [Assurance Matrix](https://github.com/eriknewton/sanctuary-framework/blob/main/ASSURANCE_MATRIX.md).
+
+To route an existing harness through Sanctuary instead of running it beside your other MCP servers, run `protect` once (the CLI also calls this `wrap`):
 
 ```bash
-# Sanctuary (TypeScript/Node.js)
-npx @sanctuary-framework/mcp-server
-
-# Concordia (Python)
-pip install concordia-protocol
-python -m concordia
+npx -y @sanctuary-framework/mcp-server@1.8.4 protect --claude-code --no-open --no-dashboard
+npx -y @sanctuary-framework/mcp-server@1.8.4 doctor --json
 ```
 
-## How They Compose
+Opt-in preview: `1.8.6-rc.5` on npm's `next` channel. Details: [README](https://github.com/eriknewton/sanctuary-framework#readme), [sanctuaryprotocol.ai](https://sanctuaryprotocol.ai).
 
-Sanctuary handles **identity and trust**. Concordia handles **negotiation and agreement**. Verascore handles **reputation and scoring**. Each works alone. Together they form the sovereign transaction stack:
+## Concordia Protocol (v0.10.0)
 
-```
-  Reputation    Verascore (7 tools)
-  ──────────────────────────────────────
-  Settlement    ACP / Stripe / Lightning
-  ──────────────────────────────────────
-  Agreement     Concordia (52 tools)
-  ──────────────────────────────────────
-  Sovereignty   Sanctuary (67+ tools)
-  ──────────────────────────────────────
-  Tools         MCP
+An open standard for structured negotiation between autonomous agents: signed offers and counter-offers across several terms at once, binding commitments, session receipts, portable reputation and discovery. It degrades gracefully when the other agent does not speak Concordia.
+
+Requires Python 3.10 or later and the server extra:
+
+```bash
+pip install "concordia-protocol[server]"
+concordia-mcp-server --version
 ```
 
-An agent running all three can negotiate deals (Concordia), commit outcomes cryptographically (Sanctuary L3 bridge), build portable reputation (Verascore scoring + Sanctuary L4 attestations), and prove its sovereignty posture to any counterparty (Sovereignty Health Report).
+Details: [README](https://github.com/eriknewton/concordia-protocol#readme), [specification](https://github.com/eriknewton/concordia-protocol/blob/main/SPEC.md), [concordiaprotocol.dev](https://concordiaprotocol.dev).
+
+## How they fit together
+
+Each works alone; neither requires the other. Sanctuary protects the agent and holds its keys. Concordia structures the deal. When both run, Sanctuary can commit to a Concordia outcome and verify it cryptographically instead of trusting it. [Verascore](https://verascore.ai) scores agent reputation from those signed records.
 
 ## Links
 
-- [Sanctuary Framework](https://github.com/eriknewton/sanctuary-framework) — npm: `@sanctuary-framework/mcp-server` (v0.6.1, 867 tests)
-- [Concordia Protocol](https://github.com/eriknewton/concordia-protocol) — PyPI: `concordia-protocol` (v0.2.1, 679 tests)
-- [Verascore](https://verascore.ai) — The authoritative reputation platform for AI agents
-- Erik Newton: [eriknewton.com](https://eriknewton.com)
+- Sanctuary: [GitHub](https://github.com/eriknewton/sanctuary-framework), npm [`@sanctuary-framework/mcp-server`](https://www.npmjs.com/package/@sanctuary-framework/mcp-server)
+- Concordia: [GitHub](https://github.com/eriknewton/concordia-protocol), PyPI [`concordia-protocol`](https://pypi.org/project/concordia-protocol/)
+- Erik Newton: [GitHub](https://github.com/eriknewton), [X @newtonlaw](https://x.com/newtonlaw), [LinkedIn](https://www.linkedin.com/in/erikwnewton/)
 
 ## License
 

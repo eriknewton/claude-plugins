@@ -5,8 +5,8 @@
     "email": "eriknewton@gmail.com"
   },
   "metadata": {
-    "description": "Sovereignty, negotiation, and reputation tools for the agentic economy. Built by Erik Newton.",
-    "version": "1.1.0"
+    "description": "Security and negotiation tools for AI agents, by Erik Newton.",
+    "version": "1.2.0"
   },
   "plugins": [
     {
@@ -16,28 +16,28 @@
         "url": "https://github.com/eriknewton/sanctuary-framework.git",
         "path": "plugin"
       },
-      "description": "Sovereignty infrastructure for AI agents — encrypted state, self-custodied identity, selective disclosure, portable reputation, and sovereignty verification.",
-      "version": "0.6.1",
+      "description": "Sanctuary MCP server for AI agents: encrypted local state, a self-held identity, approval gates and a hash-chained record. The OS-level wall (macOS; Ubuntu 24.04 x86-64 via a separate package) is armed separately.",
+      "version": "1.8.4",
       "author": {
         "name": "Erik Newton",
         "email": "eriknewton@gmail.com"
       },
-      "homepage": "https://github.com/eriknewton/sanctuary-framework",
+      "homepage": "https://sanctuaryprotocol.ai",
       "repository": "https://github.com/eriknewton/sanctuary-framework",
       "license": "Apache-2.0",
       "keywords": [
-        "sovereignty",
+        "security",
+        "egress-control",
         "encryption",
         "identity",
-        "reputation",
+        "audit",
         "privacy",
         "mcp",
         "agent",
-        "zero-knowledge",
-        "audit"
+        "sovereignty"
       ],
       "category": "security",
-      "tags": ["sovereignty", "encryption", "identity", "agent-infrastructure"]
+      "tags": ["security", "agent-security", "encryption", "identity", "audit"]
     },
     {
       "name": "concordia-protocol",
@@ -46,13 +46,13 @@
         "url": "https://github.com/eriknewton/concordia-protocol.git",
         "path": "plugin"
       },
-      "description": "Structured negotiation protocol for autonomous agents — binding commitments, multi-attribute offers, session receipts, portable reputation, and discovery.",
-      "version": "0.2.1",
+      "description": "Concordia Protocol: structured negotiation between autonomous agents. Signed multi-term offers, binding commitments, session receipts, portable reputation and discovery. Needs Python 3.10+ and pip install \"concordia-protocol[server]\".",
+      "version": "0.10.0",
       "author": {
         "name": "Erik Newton",
         "email": "eriknewton@gmail.com"
       },
-      "homepage": "https://github.com/eriknewton/concordia-protocol",
+      "homepage": "https://concordiaprotocol.dev",
       "repository": "https://github.com/eriknewton/concordia-protocol",
       "license": "Apache-2.0",
       "keywords": [
@@ -66,36 +66,6 @@
       ],
       "category": "productivity",
       "tags": ["negotiation", "commerce", "agent-protocol", "deal-making"]
-    },
-    {
-      "name": "verascore",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/eriknewton/verascore.git",
-        "path": "plugin"
-      },
-      "description": "Agent reputation scoring and trust verification — check trust scores, register agents, report transactions, query compliance data, and embed trust badges via Verascore.",
-      "version": "0.1.0",
-      "author": {
-        "name": "Erik Newton",
-        "email": "eriknewton@gmail.com"
-      },
-      "homepage": "https://verascore.ai",
-      "repository": "https://github.com/eriknewton/verascore",
-      "license": "Apache-2.0",
-      "keywords": [
-        "reputation",
-        "trust",
-        "identity",
-        "agent",
-        "compliance",
-        "badge",
-        "scoring",
-        "mcp",
-        "verascore"
-      ],
-      "category": "productivity",
-      "tags": ["reputation", "trust-scoring", "agent-identity", "compliance"]
     }
   ]
 }
